@@ -7,7 +7,7 @@ router.get(`/`, async (req, res) =>{
 
     if(!categoryList) {
         res.status(500).json({success: false})
-    } 
+    }
     res.status(200).send(categoryList);
 })
 
@@ -16,7 +16,7 @@ router.get('/:id', async(req,res)=>{
 
     if(!category) {
         res.status(500).json({message: 'The category with the given ID was not found.'})
-    } 
+    }
     res.status(200).send(category);
 })
 
@@ -62,8 +62,12 @@ router.delete('/:id', (req, res)=>{
             return res.status(404).json({success: false , message: "category not found!"})
         }
     }).catch(err=>{
-       return res.status(500).json({success: false, error: err}) 
+       return res.status(500).json({success: false, error: err})
     })
 })
 
+
+router.get('/:id/products',async (req,res) => {
+
+})
 module.exports =router;
